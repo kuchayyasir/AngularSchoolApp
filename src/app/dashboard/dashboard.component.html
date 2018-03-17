@@ -1,0 +1,53 @@
+<div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar" [ngClass]="visible ? '' : 'active'">
+        <div class="sidebar-header">
+            <h3>School App</h3>
+            <!-- <div class="navbar-header"> -->
+              <button type="button" id="sidebarCollapse" (click)="toggle()" class="btn btn-info navbar-btn">
+                  <i class="fa fa-bars"></i>
+              </button>
+          <!-- </div> -->
+        </div>
+  
+        <ul class="list-unstyled components">
+            <li class="">
+                <a class="">
+     <img src = "https://cdn.pixabay.com/photo/2018/01/31/09/42/people-3120717_960_720.jpg" class = "ratio img-circle img-responsive">
+                </a>
+            </li>
+            <li class="active">
+                <a [routerLink]="['/']" >
+                    <i class="fa fa-home"></i>
+                    Home
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/register']">
+                    <i class="fa fa-user-circle"></i>
+                    Register
+                </a>
+                <a [routerLink]="['/settings']">
+                    <i class="fa fa-gears"></i>
+                    Settings
+                </a>
+            </li>
+           
+        </ul>
+    </nav>
+  
+    <!-- Page Content Holder -->
+    <div id="content">
+  
+        <div class="container">
+                <div class="col-md-10 ">
+                        <h2>Dashboard</h2>
+                        <div class="jumbotron">
+                            <p class="text-dark">Welcome to School App </p>
+                        </div>
+               </div>
+          </div>  
+    </div>
+  
+
+

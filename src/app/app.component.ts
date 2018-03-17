@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  my_Class='';
+  close(){
+    this.my_Class="";
+  }
 }

@@ -1,0 +1,61 @@
+<div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar" [ngClass]="visible ? '' : 'active'">
+        <div class="sidebar-header">
+            <h3>School App</h3>
+            <!-- <div class="navbar-header"> -->
+              <button type="button" id="sidebarCollapse" (click)="toggle()" class="btn btn-info navbar-btn">
+                  <i class="fa fa-bars"></i>
+              </button>
+          <!-- </div> -->
+        </div>
+  
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a [routerLink]="['/']" >
+                    <i class="fa fa-home"></i>
+                    Home
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/register']">
+                    <i class="fa fa-user-circle"></i>
+                    Register
+                </a>
+                <a [routerLink]="['/settings']">
+                    <i class="fa fa-gears"></i>
+                    Settings
+                </a>
+            </li>
+   
+        </ul>
+    </nav>
+  
+    <!-- Page Content Holder -->
+    <div id="content">
+  
+        <div class="container">
+  
+            <div class="col-md-6 col-md-offset-3">
+                <h2>Set Pin</h2>
+                <form name="form" (ngSubmit)="f.form.valid && setPin()" #f="ngForm" novalidate>
+                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !pin.valid }">
+                        <label for="pin">Pin</label>
+                        <input type="password" class="form-control" name="pin" [(ngModel)]="model.pin" #pin="ngModel" validateEqual="cpin" reverse="true" maxlength="4" required />
+                        <div *ngIf="f.submitted && !pin.valid" class="help-block">Pin is required</div>
+                    </div>
+                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !cpin.valid }">
+                        <label for="cpin">Confirm Pin</label>
+                        <input type="password" class="form-control" name="cpin" [(ngModel)]="model.cpin" #cpin="ngModel" validateEqual="pin" reverse="false" maxlength="4" required />
+                        <div *ngIf="f.submitted && !cpin.valid" class="help-block">Confirm Pin Mismatch</div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">Set Pin</button>
+                    </div>
+                </form>
+            </div>
+  
+          </div>  
+    </div>
+  </div>
+

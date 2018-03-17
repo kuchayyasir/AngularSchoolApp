@@ -1,0 +1,8 @@
+{
+  "/temp/*": {
+  "target": "http://shafihuzaib.com",
+  "secure": false,
+  "changeOrigin": true,
+  "logLevel": "debug"
+  }
+}

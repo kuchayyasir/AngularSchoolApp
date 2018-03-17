@@ -1,0 +1,72 @@
+<div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar" [ngClass]="visible ? '' : 'active'">
+            <div class="sidebar-header">
+                <h3>School App</h3>
+                <!-- <div class="navbar-header"> -->
+                  <button type="button" id="sidebarCollapse" (click)="toggle()" class="btn btn-info navbar-btn">
+                      <i class="fa fa-bars"></i>
+                  </button>
+              <!-- </div> -->
+            </div>
+      
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a [routerLink]="['/']" >
+                        <i class="fa fa-home"></i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/register']">
+                        <i class="fa fa-user-circle"></i>
+                        Register
+                    </a>
+                    <a [routerLink]="['/settings']">
+                        <i class="fa fa-gears"></i>
+                        Settings
+                    </a>
+                </li>   
+            </ul>
+        </nav>
+      
+        <!-- Page Content Holder -->
+        <div id="content">
+      
+            <div class="container">
+                    <div class="col-md-6 col-md-offset-3">
+                            <h2>Register</h2>
+                            <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+                                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !school_Id.valid }">
+                                    <label for="school_Id">Schools</label>
+                                    <select class="form-control" name="school_Id" [(ngModel)]="model.school_Id" #school_Id="ngModel" required >
+                                        <option *ngFor="let school of schools" value= {{school.id}}>
+                                            {{school.name}}
+                                          </option>
+                                    </select>
+                                    <div *ngIf="f.submitted && !school_Id.valid" class="help-block">School Name is required</div>
+                                </div>
+                                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !student_Id.valid }">
+                                    <label for="student_Id">Student ID</label>
+                                    <input type="text" class="form-control" name="student_Id" [(ngModel)]="model.student_Id" #student_Id="ngModel" required />
+                                    <div *ngIf="f.submitted && !student_Id.valid" class="help-block">Student ID is required</div>
+                                </div>
+                                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+                                    <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+                                </div>
+                                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !nickname.valid }">
+                                    <label for="nickname">Nick Name</label>
+                                    <input type="text" class="form-control" name="nickname" [(ngModel)]="model.nickname" #nickname="ngModel" required />
+                                    <div *ngIf="f.submitted && !nickname.valid" class="help-block">Nick Name is required</div>
+                                </div>
+                                <div class="form-group">
+                                    <button  class="btn btn-primary">Register</button>
+                                </div>
+                            </form>
+                          </div>
+              </div>  
+        </div>
+      
+
